@@ -173,6 +173,32 @@ export const useCounterStore = defineStore('counter', () => {
 })
 ```
 
+```js
+<script lang="ts" setup>
+    import { useCounterStore } from '@/stores/counter'
+​
+    const counter = useCounterStore()
+</script>
+<template>
+    <div @click="counter.increment()">
+        {{ counter.count }}
+    </div>
+</template>
+```
+
+```js
+const counter = useCounterStore()
+const { count } = counter
+​
+<div @click="counter.increment()">{{ count }}</div>
+```
+
+pinia很贴心的提供了storeToRefs方法，让我们可以享受解构的乐趣：
+
+```js
+const { count } = storeToRefs(counter)
+```
+
 ## 接入图表库 echarts5
 
 安装&引入
