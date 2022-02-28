@@ -309,3 +309,7 @@ export const $echarts = echarts
 ```js
 npm install axios --save
 ```
+
+截图：
+
+<img src="./demo/20220228113652.png" width="100%"/>
