@@ -82,11 +82,30 @@ yarn add stylelint
 yarn add stylelint-scss
 ```
 
-## git hooks
+## 接入naive ui库
 
-```js
-npm install --save-dev husky@4.3.8 lint-staged
-```
+Naive UI 是尤大推荐的 vue3 UI 库(https://www.naiveui.com/zh-CN/os-theme)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
