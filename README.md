@@ -74,12 +74,19 @@ yarn add eslint @typescript-eslint/parser @typescript/eslint-plugin eslint-plugi
 
 TypeScirpt 官方决定全面采用 ESLint 作为代码检查的工具，并创建了一个新项目 typescript-eslint，提供了 TypeScript 文件的解析器 @typescript-eslint/parser 和相关的配置选项 @typescript-eslint/eslint-plugin 等
 
+## 使用 scss 来增强 css 的语法能力
 
+```js
+yarn add sass
+yarn add stylelint
+yarn add stylelint-scss
+```
 
+## git hooks
 
-
-
-
+```js
+npm install --save-dev husky@4.3.8 lint-staged
+```
 
 
 
