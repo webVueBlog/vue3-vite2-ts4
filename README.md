@@ -86,27 +86,200 @@ yarn add stylelint-scss
 
 Naive UI 是尤大推荐的 vue3 UI 库(https://www.naiveui.com/zh-CN/os-theme)
 
+## 接入 vue-router
 
+```js
+npm install vue-router --save
+```
 
+```js
+import {
+    createRouter, createWebHashHistory, RouteRecordRaw,
+} from 'vue-router'
+​
+const routes: Array<RouteRecordRaw> = [
+    { path: '/', name: 'Home', component: () => import('views/home/index.vue')}
+]
+​
+const router = createRouter({
+    history: createWebHashHistory(),    // history 模式则使用 createWebHistory()
+    routes,
+})
+​
+export default router
+```
 
+```js
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router/index'
+​
+const app = createApp(App as any)
+app.use(router)
+```
 
+## 接入状态管理工具 pinia
 
+pinia 是一个轻量级的状态管理库
 
+```js
+npm install pinia --save
+```
 
+引入
 
+在 main.ts中引入
 
+```js
+import { createPinia } from 'pinia'
+​
+app.use(createPinia())
+```
 
+在src/stores下新建一个counters.ts文件
 
+```js
+import { defineStore } from 'pinia'
+​
+export const useCounterStore = defineStore('counter', {
+    state: () => {
+        return {
+            count: 0
+        }
+    },
+    getters: {
+        count() {
+            return this.count
+        }
+    },
+    actions: {
+        increment() {
+            this.count++
+        }
+    }
+})
+```
 
+```js
+import { defineStore } from 'pinia'
+​
+export const useCounterStore = defineStore('counter', () => {
+    const count = ref(0)
+    function increment() {
+      count.value++
+    }
+​
+    return { count, increment }
+})
+```
 
+## 接入图表库 echarts5
 
+安装&引入
 
+```js
+npm install echarts --save
+```
 
+在src/utils/下新建echarts.ts用来引入我们需要使用的组件
 
+```js
+import * as echarts from 'echarts/core'
+import {
+    BarChart,
+    // 系列类型的定义后缀都为 SeriesOption
+    BarSeriesOption,
+    // LineChart,
+    LineSeriesOption
+} from 'echarts/charts'
+import {
+    TitleComponent,
+    // 组件类型的定义后缀都为 ComponentOption
+    TitleComponentOption,
+    TooltipComponent,
+    TooltipComponentOption,
+    GridComponent,
+    GridComponentOption,
+    // 数据集组件
+    DatasetComponent,
+    DatasetComponentOption,
+    // 内置数据转换器组件 (filter, sort)
+    TransformComponent,
+    LegendComponent
+} from 'echarts/components'
+import { LabelLayout, UniversalTransition } from 'echarts/features'
+import { CanvasRenderer } from 'echarts/renderers'
+​
+// 通过 ComposeOption 来组合出一个只有必须组件和图表的 Option 类型
+export type ECOption = echarts.ComposeOption<
+    | BarSeriesOption
+    | LineSeriesOption
+    | TitleComponentOption
+    | TooltipComponentOption
+    | GridComponentOption
+    | DatasetComponentOption
+>
+​
+// 注册必须的组件
+echarts.use([
+    TitleComponent,
+    TooltipComponent,
+    GridComponent,
+    DatasetComponent,
+    TransformComponent,
+    BarChart,
+    LabelLayout,
+    UniversalTransition,
+    CanvasRenderer,
+    LegendComponent
+])
+​
+// eslint-disable-next-line no-unused-vars
+const option: ECOption = {
+    // ...
+}
+​
+export const $echarts = echarts
+```
 
+就可以在页面中使用了：
 
+```js
+<script lang="ts" setup>
+    import { onMounted } from 'vue'
+    import { $echarts, ECOption } from '@/utils/echarts'
+​
+    onMounted(() => {
+        // 测试echarts的引入
+        const ele = document.getElementById('echarts') as HTMLCanvasElement
+        const myChart = $echarts.init(ele)
+        const option: ECOption = {
+            title: {
+                text: 'ECharts 入门示例'
+            },
+            tooltip: {},
+            legend: {
+                data: ['销量']
+            },
+            xAxis: {
+                data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+            },
+            yAxis: {},
+            series: [
+                {
+                    name: '销量',
+                    type: 'bar',
+                    data: [5, 20, 36, 10, 10, 20]
+                }
+            ]
+        }     
+</script>
+```
 
+## 配置统一 axios 处理
 
+安装&引入
 
-
-
+```js
+npm install axios --save
+```

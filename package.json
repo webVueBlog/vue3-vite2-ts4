@@ -16,7 +16,8 @@
     "sass": "^1.49.9",
     "stylelint": "^14.5.3",
     "stylelint-scss": "^4.1.0",
-    "vue": "^3.2.25"
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.12"
   },
   "devDependencies": {
     "@types/node": "^17.0.21",

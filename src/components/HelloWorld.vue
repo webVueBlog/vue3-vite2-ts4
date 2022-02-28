@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-
+import { NButton } from 'naive-ui'
 defineProps<{ msg: string }>()
 
 const count = ref(0)
@@ -31,6 +31,7 @@ const count = ref(0)
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
   </p>
+  <n-button>naive-ui</n-button>
 </template>
 
 <style scoped>
