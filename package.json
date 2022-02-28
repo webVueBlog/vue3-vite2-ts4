@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@typescript-eslint/parser": "^5.12.1",
     "eslint": "^8.10.0",
     "vue": "^3.2.25"
   },
