@@ -10,7 +10,7 @@ npm install
 npm run dev
 ```
 
-<img src="../demo/20220228094015.png" width="100%"/>
+<img src="./demo/20220228094015.png" width="100%"/>
 
 
 
