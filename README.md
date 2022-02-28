@@ -72,8 +72,7 @@ ESlint 被称作下一代的 JS Linter 工具，能够将 JS 代码解析成 AST
 yarn add eslint @typescript-eslint/parser @typescript/eslint-plugin eslint-plugin-vue
 ```
 
-
-
+TypeScirpt 官方决定全面采用 ESLint 作为代码检查的工具，并创建了一个新项目 typescript-eslint，提供了 TypeScript 文件的解析器 @typescript-eslint/parser 和相关的配置选项 @typescript-eslint/eslint-plugin 等
 
 
 
