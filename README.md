@@ -47,3 +47,41 @@ npm run dev
 ```js
 npm install @types/node --save-dev
 ```
+
+打包功能
+
+```js
+build: {
+      outDir: 'dist',   // 指定打包路径，默认为项目根目录下的 dist 目录
+      terserOptions: {
+          compress: {
+              keep_infinity: true,  // 防止 Infinity 被压缩成 1/0，这可能会导致 Chrome 上的性能问题
+              drop_console: true,   // 生产环境去除 console
+              drop_debugger: true   // 生产环境去除 debugger
+          },
+      },
+      chunkSizeWarningLimit: 1500   // chunk 大小警告的限制（以 kbs 为单位）
+}
+```
+
+## 接入代码规范
+
+ESlint 被称作下一代的 JS Linter 工具，能够将 JS 代码解析成 AST 抽象语法树，然后检测 AST 是否符合既定的规则。
+
+```js
+yarn add eslint @typescript-eslint/parser @typescript/eslint-plugin eslint-plugin-vue
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
