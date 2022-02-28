@@ -1,2 +1,21 @@
-# vue3-vite2-ts4
-一套规范的vue3+vite2+ts4前端工程化项目环境
+# Vue 3 + Typescript + Vite
+
+vue3-vite2-ts4
+
+```js
+npm init @vitejs/app
+vue
+vue-ts
+npm install
+npm run dev
+```
+
+
+
+
+
+
+
+
+
+
